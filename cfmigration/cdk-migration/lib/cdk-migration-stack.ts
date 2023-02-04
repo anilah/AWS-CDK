@@ -36,7 +36,6 @@ export class CdkMigrationStack extends cdk.Stack {
 
 
 
-    
     const CfnTable = template.getResource('DDBTable') as dynamodb.CfnTable;
     const table = dynamodb.Table.fromTableArn(this, 'ImportedTable', CfnTable.attrArn);
 
