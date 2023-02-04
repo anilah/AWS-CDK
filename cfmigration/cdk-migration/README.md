@@ -2,7 +2,7 @@
 
 AWS CDK -  Migrate cloudformation(json) project to CDK
 
-AWS CLI is configured : test using this command aws s3 ls 
+AWS CLI is configured : test using this command aws s3 ls  </br>
 Account is bootstraped : cdk bootstrap aws://ACCOUNT-NUMBER/REGION
 Create directory : mkdir cfmigration & go inside that
 Create a cloudfomration project template for S3 & dynamoDB Table
