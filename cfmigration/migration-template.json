@@ -1,0 +1,29 @@
+{
+  "Resources": {
+    "mymigrationbucket": {
+      "Type": "AWS::S3::Bucket",
+	  "Properties" : {
+        "BucketName" : "mymigrationbucket"
+      }
+	},
+  "DDBTable": {
+    "Type": "AWS::DynamoDB::Table",
+    "Properties" : {
+		"TableName" : "DDBTable",
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "ArtistId",
+                "AttributeType": "S"
+            }
+        ],
+        "KeySchema": [
+            {
+                "AttributeName": "ArtistId",
+                "KeyType": "HASH"
+            }
+        ],
+        "BillingMode": "PAY_PER_REQUEST"
+      }
+    }
+  } 
+}
