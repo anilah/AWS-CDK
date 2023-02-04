@@ -21,11 +21,15 @@ export class CdkMigrationStack extends cdk.Stack {
     const bucket = s3.Bucket.fromBucketName(this, 'Bucket', cfnBucket.ref);
     
     // changing removal policy 
-    cfnBucket.applyRemovalPolicy(RemovalPolicy.RETAIN);
+    //fnBucket.applyRemovalPolicy(RemovalPolicy.RETAIN);
     
     // block public access
     cfnBucket.publicAccessBlockConfiguration = {
       blockPublicAcls: true,
+      blockPublicPolicy : true,
+      restrictPublicBuckets : true,
+      ignorePublicAcls:true
+      
     };
 
     // enable versioning
@@ -40,7 +44,7 @@ export class CdkMigrationStack extends cdk.Stack {
     const table = dynamodb.Table.fromTableArn(this, 'ImportedTable', CfnTable.attrArn);
 
     // changing removal policy 
-    CfnTable.applyRemovalPolicy(RemovalPolicy.RETAIN);
+   // CfnTable.applyRemovalPolicy(RemovalPolicy.RETAIN);
     
     // modifying time to live specification
     CfnTable.timeToLiveSpecification = {
